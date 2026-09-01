@@ -1,0 +1,33 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# Next.js
+.next/
+out/
+
+# tests and tooling
+coverage/
+playwright-report/
+test-results/
+
+# environment
+.env
+.env.local
+.env.*.local
+
+# local services
+.supabase/
+supabase/.temp/
+
+# OS and editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# TypeScript
+*.tsbuildinfo
+
+# Visual brainstorming scratch data
+.superpowers/
