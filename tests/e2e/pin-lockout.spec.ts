@@ -35,7 +35,7 @@ test.afterAll(async () => {
 });
 
 test("cinco PINs invalidos exibem bloqueio sem revelar se o usuario existe", async ({ page }) => {
-  await page.goto("/login");
+  await page.goto("/");
 
   const usuario = page.getByLabel("Usuário", { exact: true });
   const entrar = page.getByRole("button", { name: "Entrar", exact: true });

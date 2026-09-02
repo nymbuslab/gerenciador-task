@@ -43,8 +43,13 @@ export async function limparLoja(admin: SupabaseClient): Promise<void> {
 
   const { data } = await admin.auth.admin.listUsers({ page: 1, perPage: 200 });
 
+  // A demonstração entra na limpeza junto com as fixtures: os testes apagam
+  // todas as lojas, e deixar a conta viva sem perfil produz um acesso que
+  // autentica e recusa sem explicar o motivo.
+  const DESCARTAVEIS = ["@example.test", "@demonstracao.test", "@identidades.interno"];
+
   for (const conta of data?.users ?? []) {
-    if (conta.email?.endsWith("@example.test") || conta.email?.endsWith("@identidades.interno")) {
+    if (DESCARTAVEIS.some((dominio) => conta.email?.endsWith(dominio))) {
       await admin.auth.admin.deleteUser(conta.id);
     }
   }
@@ -121,7 +126,7 @@ export async function entrar(
   const contexto = await browser.newContext();
   const pagina = await contexto.newPage();
 
-  await pagina.goto("/login");
+  await pagina.goto("/");
 
   if (comoLideranca) {
     await pagina.getByRole("button", { name: "Liderança" }).click();
@@ -135,10 +140,8 @@ export async function entrar(
   await pagina.getByRole("button", { name: "Entrar", exact: true }).click();
 
   // A primeira chamada ao servidor recem-iniciado passa dos 5 segundos padrao
-  // do Playwright, entao a espera pela saida do /login e explicita e generosa.
-  await pagina.waitForURL((endereco) => !endereco.pathname.endsWith("/login"), {
-    timeout: 30_000,
-  });
+  // do Playwright, entao a espera pela visao do papel e explicita e generosa.
+  await pagina.waitForURL(/\/(hoje|setor|operacao)$/, { timeout: 30_000 });
 
   return pagina;
 }

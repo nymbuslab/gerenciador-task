@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useEffect, useState, type FormEvent } from "react";
 
 import { AppShell, CabecalhoDePagina, Estado } from "@/src/components/app-shell";
@@ -179,9 +180,9 @@ export default function AdminFuncionariosPage() {
             titulo="Entre para continuar"
             texto="Administrar a equipe exige uma conta de gestor."
             acao={
-              <a className="botao" href="/login">
+              <Link className="botao" href="/">
                 Ir para a entrada
-              </a>
+              </Link>
             }
           />
         </div>
@@ -199,9 +200,9 @@ export default function AdminFuncionariosPage() {
           titulo="Esta visão é do gestor"
           texto="Somente o gestor cadastra pessoas, promove líder e redefine acesso."
           acao={
-            <a className="botao" href="/hoje">
+            <Link className="botao" href="/hoje">
               Ver meu dia
-            </a>
+            </Link>
           }
         />
       ) : (

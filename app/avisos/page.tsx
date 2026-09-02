@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Bell, Check, TriangleAlert } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 
@@ -95,9 +96,9 @@ export default function AvisosPage() {
                 : "Os avisos são da sua conta. Entre com seu acesso."
             }
             acao={
-              <a className="botao" href="/login">
+              <Link className="botao" href="/">
                 Ir para a entrada
-              </a>
+              </Link>
             }
           />
         </div>
@@ -119,9 +120,9 @@ export default function AvisosPage() {
           titulo="Nenhum aviso"
           texto="Atribuição de tarefa, menção em comentário e decisão de validação aparecem aqui."
           acao={
-            <a className="botao" href="/hoje">
+            <Link className="botao" href="/hoje">
               Ver meu dia
-            </a>
+            </Link>
           }
         />
       ) : (

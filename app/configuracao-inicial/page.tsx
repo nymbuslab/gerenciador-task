@@ -105,7 +105,7 @@ export default function ConfiguracaoInicialPage() {
             titulo="Assistente encerrado"
             texto="Esta loja já tem gestor. O assistente roda uma única vez e não cria outra conta."
             acao={
-              <Link className="botao" href="/login">
+              <Link className="botao" href="/">
                 Ir para a entrada
               </Link>
             }
@@ -117,7 +117,7 @@ export default function ConfiguracaoInicialPage() {
             titulo="Loja criada"
             texto="A conta de gestor está pronta. Entre com o e-mail e a senha que você acabou de cadastrar."
             acao={
-              <Link className="botao" href="/login">
+              <Link className="botao" href="/">
                 Entrar como gestor
               </Link>
             }

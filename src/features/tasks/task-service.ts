@@ -245,6 +245,27 @@ const CAMPOS_DE_LISTA =
   // Sem nomear a chave, o PostgREST nao sabe qual seguir e devolve erro.
   " profiles!task_executions_responsavel_perfil_id_fkey(nome)";
 
+/**
+ * O dia e uma sequencia, e a regua de tempo promete isso na tela. Ordenar por
+ * prazo aqui mantem a promessa; tarefa sem prazo fecha a lista, porque nao
+ * disputa horario com quem tem.
+ */
+function porPrazo(uma: TarefaEmLista, outra: TarefaEmLista): number {
+  if (uma.prazo === outra.prazo) {
+    return uma.titulo.localeCompare(outra.titulo, "pt-BR");
+  }
+
+  if (!uma.prazo) {
+    return 1;
+  }
+
+  if (!outra.prazo) {
+    return -1;
+  }
+
+  return new Date(uma.prazo).getTime() - new Date(outra.prazo).getTime();
+}
+
 function paraLista(linha: LinhaLista): TarefaEmLista {
   const responsavel = Array.isArray(linha.profiles) ? linha.profiles[0] : linha.profiles;
 
@@ -277,10 +298,9 @@ export async function listarMinhasTarefas(
   const { data } = await cliente
     .from("task_executions")
     .select(CAMPOS_DE_LISTA)
-    .or(`responsavel_perfil_id.eq.${perfilId},compartilhada.is.true`)
-    .order("estado");
+    .or(`responsavel_perfil_id.eq.${perfilId},compartilhada.is.true`);
 
-  return ((data ?? []) as unknown as LinhaLista[]).map(paraLista);
+  return ((data ?? []) as unknown as LinhaLista[]).map(paraLista).sort(porPrazo);
 }
 
 export async function listarTarefasDoSetor(
@@ -290,19 +310,17 @@ export async function listarTarefasDoSetor(
   const { data } = await cliente
     .from("task_executions")
     .select(CAMPOS_DE_LISTA)
-    .eq("sector_id", setorId)
-    .order("estado");
+    .eq("sector_id", setorId);
 
-  return ((data ?? []) as unknown as LinhaLista[]).map(paraLista);
+  return ((data ?? []) as unknown as LinhaLista[]).map(paraLista).sort(porPrazo);
 }
 
 export async function listarTarefasDaLoja(cliente: SupabaseClient): Promise<TarefaEmLista[]> {
   const { data } = await cliente
     .from("task_executions")
-    .select(CAMPOS_DE_LISTA)
-    .order("estado");
+    .select(CAMPOS_DE_LISTA);
 
-  return ((data ?? []) as unknown as LinhaLista[]).map(paraLista);
+  return ((data ?? []) as unknown as LinhaLista[]).map(paraLista).sort(porPrazo);
 }
 
 export type NovaTarefa = {

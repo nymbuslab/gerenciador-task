@@ -7,7 +7,7 @@ import { preencherPin } from "./apoio";
 const DESCONHECIDO = `ninguem.${Date.now().toString(36)}`;
 
 test("a tela de entrada recusa credenciais invalidas com mensagem neutra", async ({ page }) => {
-  await page.goto("/login");
+  await page.goto("/");
 
   await expect(
     page.getByRole("heading", { level: 1, name: "A operação do dia, em um só lugar." }),
@@ -21,11 +21,11 @@ test("a tela de entrada recusa credenciais invalidas com mensagem neutra", async
   const erro = page.getByRole("alert", { name: "Erro de acesso" });
   await expect(erro).toBeVisible();
   await expect(erro).toHaveText("Usuário ou senha incorretos.");
-  await expect(page).toHaveURL(/\/login$/);
+  await expect(page).toHaveURL(/127\.0\.0\.1:3100\/$/);
 });
 
 test("a tela de entrada alterna entre acesso de funcionario e de lideranca", async ({ page }) => {
-  await page.goto("/login");
+  await page.goto("/");
 
   await expect(page.getByLabel("Usuário", { exact: true })).toBeVisible();
   await expect(page.getByLabel("Dígito 1 de 6")).toBeVisible();

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, type FormEvent } from "react";
 
 import { AppShell, CabecalhoDePagina, Estado } from "@/src/components/app-shell";
@@ -245,9 +246,9 @@ export function TaskBoard({
                 : "Esta tela mostra as tarefas da sua conta. Entre com seu acesso."
             }
             acao={
-              <a className="botao" href="/login">
+              <Link className="botao" href="/">
                 Ir para a entrada
-              </a>
+              </Link>
             }
           />
         </div>
@@ -266,9 +267,9 @@ export function TaskBoard({
           titulo="Esta visão é de outro papel"
           texto="Seu acesso não administra esta tela. Volte para as suas tarefas do dia."
           acao={
-            <a className="botao" href="/hoje">
+            <Link className="botao" href="/hoje">
               Ver meu dia
-            </a>
+            </Link>
           }
         />
       ) : (
