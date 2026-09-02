@@ -16,6 +16,7 @@ _(nada no momento)_
 - [ ] (P1) Preencher `NEXT_PUBLIC_VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY` e `VAPID_SUBJECT` no `.env.local` quando o Web Push entrar na Sprint 05. Hoje estão vazias, e por isso `readServerEnv` falha se for chamada; o servidor usa a leitura estreita `readSupabaseAdminEnv`.
 - [ ] (P1) Decidir o destino de `--cor-texto-apoio` (`#64748d`) no design system. Sobre a superfície suave ela dá 4,49:1 e reprova no mínimo AA de 4,5:1 para texto corrido, então hoje o produto a usa apenas em ícone, onde o mínimo é 3:1. Ou o token sai, ou a regra de uso entra no `docs/design-system.md`.
 - [ ] (P1) Levar a repaginação para as telas que ainda não existem quando elas nascerem nas sprints 04 a 06 (escala, indicadores, painel do piloto): a régua de tempo, o navy de estrutura e a pílula única por tela são o padrão agora.
+- [ ] (P1) Calcular os marcos de tempo da execução no servidor. Hoje `segundos_ativos` e `segundos_bloqueados` são somados no navegador e enviados na chamada; o banco só recusa valor negativo. Um cliente adulterado infla a própria métrica, o que afeta os indicadores da Sprint 06. A correção é derivar os dois do instante da transição, como o estado já é derivado desde a migration `00000000000009_transicao_segura.sql`.
 - [ ] (P1) Preparar piloto operacional com um setor.
 
 ## ✅ Concluído
