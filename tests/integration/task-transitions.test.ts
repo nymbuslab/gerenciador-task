@@ -399,6 +399,39 @@ describe("transicoes proibidas e concorrencia", () => {
     expect(error?.code).toBe("P0002");
   }, 60_000);
 
+  it("ignora o estado que o cliente manda e deriva a transicao no banco", async () => {
+    const antes = await carregarExecucao(clienteFuncionario, EXECUCAO_SIMPLES);
+    expect(antes?.estado).toBe("pendente");
+
+    // Cliente pede "concluir" numa tarefa que nem comecou, mandando o estado
+    // final de bandeja. A maquina de estados do navegador nao pode ser a unica
+    // barreira: chamada direta pula a tela inteira.
+    const { error } = await clienteFuncionario.rpc("aplicar_transicao_tarefa", {
+      p_execucao: EXECUCAO_SIMPLES,
+      p_versao_esperada: antes!.version,
+      p_acao: "concluir",
+      p_campos: {
+        estado: "concluida",
+        iniciada_em: null,
+        faixa_ativa_desde: null,
+        bloqueada_em: null,
+        bloqueio_motivo: null,
+        segundos_ativos: 0,
+        segundos_bloqueados: 0,
+        validacao_solicitada_em: null,
+        reprovacao_motivo: null,
+        concluida_em: T3.toISOString(),
+        cancelada_em: null,
+      },
+    });
+
+    expect(error?.code).toBe("42501");
+
+    const depois = await carregarExecucao(clienteFuncionario, EXECUCAO_SIMPLES);
+    expect(depois?.estado).toBe("pendente");
+    expect(depois?.version).toBe(antes?.version);
+  }, 60_000);
+
   it("nao deixa uma pessoa comandar a execucao de outro setor", async () => {
     const resultado = await executarComando(
       clienteOutroSetor,

@@ -302,6 +302,30 @@ describe("decisao de validacao", () => {
     await executarComando(clienteFuncionario, { execucaoId: EXECUCAO, comando: "iniciar" }, T0);
     await executarComando(clienteFuncionario, { execucaoId: EXECUCAO, comando: "concluir" }, T1);
 
+    // Quem executou e o proprio responsavel, e a politica de UPDATE o deixa
+    // escrever na propria execucao. Quem precisa barrar a auto-aprovacao e o
+    // servidor, e nao a tela que esconde o botao.
+    const resultado = await executarComando(
+      clienteFuncionario,
+      { execucaoId: EXECUCAO, comando: "aprovar" },
+      T2,
+    );
+
+    expect(resultado.situacao).toBe("recusado");
+
+    const { data } = await admin
+      .from("task_executions")
+      .select("estado, validada_por")
+      .eq("id", EXECUCAO)
+      .single();
+    expect(data?.estado).toBe("aguardando_validacao");
+    expect(data?.validada_por).toBeNull();
+  }, 90_000);
+
+  it("nao deixa quem nao valida alcancar a execucao de outro setor", async () => {
+    await executarComando(clienteFuncionario, { execucaoId: EXECUCAO, comando: "iniciar" }, T0);
+    await executarComando(clienteFuncionario, { execucaoId: EXECUCAO, comando: "concluir" }, T1);
+
     const resultado = await executarComando(
       clienteOutroSetor,
       { execucaoId: EXECUCAO, comando: "aprovar" },

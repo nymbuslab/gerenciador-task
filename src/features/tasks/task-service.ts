@@ -17,6 +17,7 @@ import {
  */
 
 const CODIGO_CONFLITO = "P0002";
+const CODIGO_RECUSA = "42501";
 
 const TEXTO_DA_PENDENCIA: Record<string, string> = {
   checklist: "ainda há item obrigatório do checklist sem marcar",
@@ -150,8 +151,9 @@ export async function executarComando(
     p_execucao: atual.id,
     p_versao_esperada: atual.version,
     p_acao: entrada.comando,
+    // O estado nao vai daqui: o banco deriva a transicao da acao e do estado
+    // gravado. Estes campos sao os marcos de tempo e o motivo.
     p_campos: {
-      estado: proxima.estado,
       iniciada_em: proxima.iniciadaEm,
       faixa_ativa_desde: proxima.faixaAtivaDesde,
       bloqueada_em: proxima.bloqueadaEm,
@@ -171,6 +173,12 @@ export async function executarComando(
         situacao: "conflito",
         motivo: "a execução mudou desde a última leitura; recarregue antes de tentar de novo",
       };
+    }
+
+    // O banco recusa por autorizacao ou por transicao invalida, e a mensagem
+    // dele ja e escrita para quem esta na tela.
+    if (error.code === CODIGO_RECUSA) {
+      return { situacao: "recusado", motivo: error.message };
     }
 
     return { situacao: "indisponivel", motivo: "não foi possível gravar a transição" };
