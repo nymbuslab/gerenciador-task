@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap">
+  <style>
+    body { margin: 0; font-family: Inter, "Segoe UI", system-ui, sans-serif; font-feature-settings: "ss01"; }
+    a { color: #4434d4; } a:hover { color: #2e2b8c; }
+  </style>
+</helmet>
+
+<div style="width: 390px; height: 844px; background: #f6f9fc; display: flex; flex-direction: column; overflow: hidden;">
+
+  <div style="background: #1c1e54; padding: 20px 16px 18px; display: flex; flex-direction: column; gap: 12px;">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+      <p style="margin: 0; color: #b9b9f9; font-size: 10px; font-weight: 400; letter-spacing: 0.1px; text-transform: uppercase;">Meu dia</p>
+      <p style="margin: 0; color: #b9b9f9; font-size: 13px; letter-spacing: -0.39px;">Fábio, Mercearia</p>
+    </div>
+
+    <h1 style="margin: 0; color: #ffffff; font-size: 32px; font-weight: 300; letter-spacing: -0.64px; line-height: 1.1; font-variant-numeric: tabular-nums;">3 de 7 feitas</h1>
+
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div style="height: 3px; border-radius: 9999px; background: #2e2b8c; display: flex;">
+        <div style="width: 43%; background: #665efd; border-radius: 9999px;"></div>
+      </div>
+      <p style="margin: 0; color: #b9b9f9; font-size: 13px; letter-spacing: -0.39px;">Terça, 1 de setembro</p>
+    </div>
+  </div>
+
+  <div style="flex-grow: 1; padding: 24px 16px; display: flex; flex-direction: column; gap: 32px; overflow: hidden;">
+
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <p style="margin: 0; color: #273951; font-size: 10px; font-weight: 400; letter-spacing: 0.1px; text-transform: uppercase;">Agora</p>
+
+      <div style="display: flex; gap: 16px; padding: 20px; background: #ffffff; border: 1px solid #e3e8ee; border-radius: 12px; box-shadow: 0 8px 24px rgb(0 55 112 / 8%), 0 2px 6px rgb(0 55 112 / 4%);">
+        <div style="width: 44px; display: flex; flex-direction: column; align-items: center; gap: 6px;">
+          <span style="color: #0d253d; font-size: 14px; letter-spacing: -0.42px; font-variant-numeric: tabular-nums;">08:00</span>
+          <span style="width: 9px; height: 9px; border-radius: 9999px; background: #533afd;"></span>
+          <span style="flex-grow: 1; width: 1px; background: #e3e8ee;"></span>
+          <span style="color: #273951; font-size: 14px; letter-spacing: -0.42px; font-variant-numeric: tabular-nums;">09:00</span>
+        </div>
+
+        <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 16px;">
+          <h2 style="margin: 0; color: #0d253d; font-size: 20px; font-weight: 300; letter-spacing: -0.2px; line-height: 1.1;">Repor a gôndola de bebidas</h2>
+
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#273951" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+            <span style="color: #273951; font-size: 14px; letter-spacing: -0.42px; font-variant-numeric: tabular-nums;">12 min ativos</span>
+          </div>
+
+          <div style="display: flex; gap: 8px;">
+            <button style="min-height: 44px; padding: 0 24px; border: none; border-radius: 9999px; background: #533afd; color: #ffffff; font-family: inherit; font-size: 16px; font-weight: 400;">Concluir</button>
+            <button style="min-height: 44px; padding: 0 16px; border: 1px solid #e3e8ee; border-radius: 9999px; background: #ffffff; color: #2e2b8c; font-family: inherit; font-size: 14px; font-weight: 400;">Bloquear</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      <p style="margin: 0 0 8px; color: #273951; font-size: 10px; font-weight: 400; letter-spacing: 0.1px; text-transform: uppercase;">Depois</p>
+
+      <div style="display: flex; align-items: center; gap: 16px; min-height: 44px; padding: 6px 0; border-bottom: 1px solid #e3e8ee;">
+        <span style="width: 44px; color: #273951; font-size: 14px; letter-spacing: -0.42px; font-variant-numeric: tabular-nums; text-align: center;">10:00</span>
+        <span style="flex-grow: 1; color: #0d253d; font-size: 15px;">Conferir validade do laticínio</span>
+        <span style="padding: 2px 8px; border: 1px solid #ea2261; border-radius: 9999px; color: #0d253d; font-size: 10px; letter-spacing: 0.1px; text-transform: uppercase;">Alta</span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 16px; min-height: 44px; padding: 6px 0; border-bottom: 1px solid #e3e8ee;">
+        <span style="width: 44px; color: #273951; font-size: 14px; letter-spacing: -0.42px; font-variant-numeric: tabular-nums; text-align: center;">14:00</span>
+        <span style="flex-grow: 1; color: #0d253d; font-size: 15px;">Trocar etiquetas do corredor 3</span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 16px; min-height: 44px; padding: 6px 0; border-bottom: 1px solid #e3e8ee;">
+        <span style="width: 44px; color: #273951; font-size: 14px; letter-spacing: -0.42px; font-variant-numeric: tabular-nums; text-align: center;">17:30</span>
+        <span style="flex-grow: 1; color: #0d253d; font-size: 15px;">Recolher caixas do depósito</span>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      <p style="margin: 0 0 8px; color: #273951; font-size: 10px; font-weight: 400; letter-spacing: 0.1px; text-transform: uppercase;">Feitas</p>
+
+      <div style="display: flex; align-items: center; gap: 16px; min-height: 44px; padding: 6px 0;">
+        <span style="width: 44px; display: flex; justify-content: center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+        </span>
+        <span style="flex-grow: 1; color: #273951; font-size: 15px;">Abrir o corredor central</span>
+        <span style="color: #273951; font-size: 14px; letter-spacing: -0.42px; font-variant-numeric: tabular-nums;">07:15</span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 16px; min-height: 44px; padding: 6px 0;">
+        <span style="width: 44px; display: flex; justify-content: center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+        </span>
+        <span style="flex-grow: 1; color: #273951; font-size: 15px;">Conferir a câmara fria</span>
+        <span style="color: #273951; font-size: 14px; letter-spacing: -0.42px; font-variant-numeric: tabular-nums;">07:40</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: #1c1e54; display: flex;">
+    <div style="flex-grow: 1; min-height: 56px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; border-top: 2px solid #665efd;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"></rect><path d="M8 2v4M16 2v4M3 10h18"></path></svg>
+      <span style="color: #ffffff; font-size: 11px;">Meu dia</span>
+    </div>
+    <div style="flex-grow: 1; min-height: 56px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; border-top: 2px solid transparent;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b9b9f9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
+      <span style="color: #b9b9f9; font-size: 11px;">Avisos</span>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

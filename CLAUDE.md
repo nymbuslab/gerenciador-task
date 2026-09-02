@@ -26,6 +26,7 @@ PWA para distribuir, executar e acompanhar tarefas operacionais de uma loja de m
 6. Toda task de implementação começa pelo teste correspondente.
 7. Não armazenar valores reais de ambiente ou credenciais no repositório.
 8. Usar caminhos relativos na documentação e manter `docs/README.md` atualizado.
+9. Nenhuma tela, componente ou botão entra sem protótipo aprovado em `design/canvas/` e sem captura conferida em desktop e celular.
 
 ## Organização planejada
 

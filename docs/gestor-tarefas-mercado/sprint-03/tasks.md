@@ -12,7 +12,7 @@ teste_funcional: Um funcionário lista suas tarefas pessoais e coletivas sem rec
 criterio_aceite: Todos os casos de isolamento e integridade da migration passam.
 depende_de: [T-02.06]
 paralelizavel: false
-status: pendente
+status: concluida - 2026-09-01 - suite: integracao 62 passed, 0 failed (18 casos de tarefas: visibilidade por papel, criacao, execucoes, checklist e integridade); typecheck e lint sem erro
 ```
 
 ```yaml
@@ -27,7 +27,7 @@ teste_funcional: Uma tarefa individual percorre pendente, em execução, bloquea
 criterio_aceite: Todas as transições permitidas passam e todas as proibidas são rejeitadas.
 depende_de: [T-03.01]
 paralelizavel: false
-status: pendente
+status: concluida - 2026-09-01 - suite: unit 27 passed (dominio: transicoes permitidas e proibidas), integracao 70 passed (ciclo completo, auditoria por transicao e conflito de versao); typecheck e lint sem erro
 ```
 
 ```yaml
@@ -42,7 +42,7 @@ teste_funcional: Arquivo aceito conclui após compressão e arquivo inválido ou
 criterio_aceite: Tipos, limites, quantidade, privacidade e requisitos passam na suíte.
 depende_de: [T-03.02]
 paralelizavel: true
-status: pendente
+status: concluida - 2026-09-01 - suite: integracao 77 passed (7 casos de evidencia: WebP privado, limites, isolamento, URL assinada e requisitos), unit 39 passed; typecheck e lint sem erro
 ```
 
 ```yaml
@@ -57,7 +57,7 @@ teste_funcional: Uma reprovação justificada devolve a execução ao trabalho e
 criterio_aceite: Comentários, menções, aprovação e reprovação passam para papéis autorizados.
 depende_de: [T-03.03]
 paralelizavel: false
-status: pendente
+status: concluida - 2026-09-01 - suite: integracao 85 passed (8 casos de colaboracao: comentario, mencao filtrada por destinatario, aprovacao, reprovacao com aviso ao executor e isolamento da caixa de entrada); typecheck e lint sem erro
 ```
 
 ```yaml
@@ -72,5 +72,5 @@ teste_funcional: Gestor cria, funcionário executa e líder valida a mesma taref
 criterio_aceite: O fluxo ponta a ponta termina com tarefa concluída e histórico completo.
 depende_de: [T-03.02]
 paralelizavel: true
-status: pendente
+status: concluida - 2026-09-01 - suite: ci:verify passed; unit/components 46 passed, integracao 85 passed, e2e 23 passed e 5 skipped (ciclo completo em desktop e mobile)
 ```

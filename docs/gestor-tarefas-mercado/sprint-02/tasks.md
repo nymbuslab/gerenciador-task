@@ -12,7 +12,7 @@ teste_funcional: Um líder consulta o próprio setor e recebe negação ao consu
 criterio_aceite: Todos os casos da matriz de autorização passam contra o Supabase remoto de desenvolvimento.
 depende_de: [T-01.05]
 paralelizavel: true
-status: pendente
+status: concluida - 2026-09-01 - suite: integracao 16 passed, 0 failed; unit/components 5 passed; typecheck e lint sem erro
 ```
 
 ```yaml
@@ -27,7 +27,7 @@ teste_funcional: Em mobile e desktop cada papel vê somente seus destinos de nav
 criterio_aceite: Os testes de componente e E2E do shell passam para os três papéis.
 depende_de: [T-01.05]
 paralelizavel: true
-status: pendente
+status: concluida - 2026-09-01 - suite: ci:verify passed; unit/components 16 passed, integracao 16 passed, e2e 12 passed (desktop e mobile), build passed
 ```
 
 ```yaml
@@ -42,7 +42,7 @@ teste_funcional: Credenciais válidas direcionam cada papel à sua página inici
 criterio_aceite: Os três logins válidos e um login inválido passam nos testes funcionais.
 depende_de: [T-02.01, T-02.02, T-02.05]
 paralelizavel: false
-status: pendente
+status: concluida - 2026-09-01 - suite: ci:verify passed; integracao 31 passed (3 logins validos por papel e recusa neutra), unit/components 16 passed, e2e 18 passed e 2 skipped
 ```
 
 ```yaml
@@ -57,7 +57,7 @@ teste_funcional: O assistente cria o primeiro gestor, autentica e fica indispon�
 criterio_aceite: Criação atômica, auditoria, concorrência e desativação permanente passam na suíte.
 depende_de: [T-02.01, T-02.02]
 paralelizavel: false
-status: pendente
+status: concluida - 2026-09-01 - suite: ci:verify passed; unit/components 16 passed, integracao 22 passed, e2e 14 passed e 2 skipped (assistente roda uma vez por execucao)
 ```
 
 ```yaml
@@ -72,7 +72,7 @@ teste_funcional: Gestor cria setor, cadastra funcionário, promove líder, trans
 criterio_aceite: Todos os fluxos administrativos passam e usuários arquivados não autenticam.
 depende_de: [T-02.04, T-02.05]
 paralelizavel: false
-status: pendente
+status: concluida - 2026-09-01 - suite: ci:verify passed; integracao 44 passed, unit/components 16 passed, e2e 21 passed e 5 skipped
 ```
 
 ```yaml
@@ -87,5 +87,5 @@ teste_funcional: Cinco PINs inválidos exibem bloqueio sem revelar se o usuário
 criterio_aceite: Bloqueio, expiração, auditoria e desbloqueio passam na suíte.
 depende_de: [T-02.03]
 paralelizavel: false
-status: pendente
+status: concluida - 2026-09-01 - suite: ci:verify passed; integracao 39 passed (bloqueio, expiracao, auditoria e desbloqueio), unit/components 16 passed, e2e 19 passed e 4 skipped
 ```

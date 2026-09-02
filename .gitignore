@@ -31,3 +31,10 @@ Thumbs.db
 
 # Visual brainstorming scratch data
 .superpowers/
+
+# Impeccable (cache de sessao)
+.impeccable/hook.cache.json
+
+# Prancheta gerada: as fontes sao os .dc.html e o canvas.json
+design/canvas/*.html
+!design/canvas/*.dc.html

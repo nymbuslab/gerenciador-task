@@ -1,0 +1,23 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "design/canvas/Main.dc.html"
+        ],
+        "createdAt": "2026-09-02T02:03:44.915Z",
+        "reason": "elevacao-2 do design system do projeto, copiada de assets/DESIGN-stripe.md nivel 2 (rgba(0,55,112,0.08) 0 8px 24px): sombra com deslocamento sobre fundo branco, nao halo"
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-09-02T02:53:46.802Z",
+        "reason": "mesma fonte do design system do projeto, grafia minuscula na declaracao CSS"
+      }
+    ]
+  }
+}
