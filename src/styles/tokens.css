@@ -1,0 +1,105 @@
+/*
+ * Tokens do produto, derivados de assets/DESIGN-stripe.md.
+ * Os valores sao copiados da referencia, sem arredondar para grade propria.
+ * Regra de governanca: cor, tipografia, raio, espacamento e sombra saem daqui.
+ */
+
+:root {
+  color-scheme: light;
+
+  /* Marca e acento */
+  --cor-primaria: #533afd;
+  --cor-primaria-profunda: #4434d4;
+  --cor-primaria-pressionada: #2e2b8c;
+  --cor-primaria-suave: #665efd;
+  --cor-primaria-tenue: #b9b9f9;
+  --cor-marca-escura: #1c1e54;
+  --cor-rubi: #ea2261;
+  --cor-magenta: #f96bee;
+  --cor-limao: #9b6829;
+
+  /* Superficie */
+  --cor-superficie: #ffffff;
+  --cor-superficie-suave: #f6f9fc;
+  --cor-superficie-creme: #f5e9d4;
+  --cor-fio: #e3e8ee;
+  --cor-fio-campo: #a8c3de;
+
+  /* Texto */
+  --cor-texto: #0d253d;
+  --cor-texto-secundario: #273951;
+  --cor-texto-apoio: #64748d;
+  --cor-texto-navegacao: #61718a;
+  --cor-sobre-primaria: #ffffff;
+
+  /* Tipografia */
+  --fonte-base: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+  --peso-editorial: 300;
+  --peso-controle: 400;
+
+  --texto-display-xxl: 56px;
+  --texto-display-xl: 48px;
+  --texto-display-lg: 32px;
+  --texto-display-md: 26px;
+  --texto-titulo-lg: 22px;
+  --texto-titulo-md: 20px;
+  --texto-titulo-sm: 18px;
+  --texto-corpo-lg: 16px;
+  --texto-corpo-md: 15px;
+  --texto-tabular: 14px;
+  --texto-botao-md: 16px;
+  --texto-botao-sm: 14px;
+  --texto-legenda: 13px;
+  --texto-micro: 11px;
+  --texto-micro-caixa-alta: 10px;
+
+  --tracking-display-xxl: -1.4px;
+  --tracking-display-xl: -0.96px;
+  --tracking-display-lg: -0.64px;
+  --tracking-display-md: -0.26px;
+  --tracking-titulo-md: -0.2px;
+  --tracking-legenda: -0.39px;
+  --tracking-micro-caixa-alta: 0.1px;
+
+  --altura-display-xxl: 1.03;
+  --altura-display-lg: 1.1;
+  --altura-corpo: 1.4;
+
+  /* Espacamento, base 8px com subtokens finos */
+  --espaco-xxs: 2px;
+  --espaco-xs: 4px;
+  --espaco-sm: 8px;
+  --espaco-md: 12px;
+  --espaco-lg: 16px;
+  --espaco-xl: 24px;
+  --espaco-xxl: 32px;
+  --espaco-enorme: 64px;
+
+  /* Raio */
+  --raio-xs: 4px;
+  --raio-sm: 6px;
+  --raio-md: 8px;
+  --raio-lg: 12px;
+  --raio-xl: 16px;
+  --raio-pilula: 9999px;
+
+  /* Elevacao */
+  --elevacao-1: 0 1px 3px rgb(0 55 112 / 8%);
+  --elevacao-2:
+    0 8px 24px rgb(0 55 112 / 8%),
+    0 2px 6px rgb(0 55 112 / 4%);
+
+  /* Controles e alvos de toque */
+  --alvo-toque: 44px;
+  --altura-campo: 40px;
+  --largura-conteudo: 1200px;
+
+  /* Movimento */
+  --transicao-rapida: 120ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transicao-rapida: 0ms;
+  }
+}
