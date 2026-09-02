@@ -20,6 +20,7 @@ export type IdentidadeTeste = {
   nome: string;
   email: string;
   usuario: string;
+  senha: string;
 };
 
 export type FixturesIdentidade = {
@@ -39,6 +40,11 @@ const setores: SetorTeste[] = [
     lojaId: loja.id,
     nome: "Mercearia",
   },
+  {
+    id: "20000000-0000-4000-8000-000000000002",
+    lojaId: loja.id,
+    nome: "Acougue",
+  },
 ];
 
 const identidades: IdentidadeTeste[] = [
@@ -51,6 +57,7 @@ const identidades: IdentidadeTeste[] = [
     nome: "Gestor Teste",
     email: "gestor@example.test",
     usuario: "gestor.teste",
+    senha: "SenhaGestor#2026",
   },
   {
     authUserId: "30000000-0000-4000-8000-000000000002",
@@ -61,6 +68,7 @@ const identidades: IdentidadeTeste[] = [
     nome: "Lider Teste",
     email: "lider@example.test",
     usuario: "lider.teste",
+    senha: "SenhaLider#2026",
   },
   {
     authUserId: "30000000-0000-4000-8000-000000000003",
@@ -71,6 +79,18 @@ const identidades: IdentidadeTeste[] = [
     nome: "Funcionario Teste",
     email: "funcionario@example.test",
     usuario: "funcionario.teste",
+    senha: "SenhaFuncionario#2026",
+  },
+  {
+    authUserId: "30000000-0000-4000-8000-000000000004",
+    perfilId: "40000000-0000-4000-8000-000000000004",
+    lojaId: loja.id,
+    setorId: setores[1].id,
+    papel: "funcionario",
+    nome: "Funcionario Outro Setor",
+    email: "funcionario.outro@example.test",
+    usuario: "funcionario.outro",
+    senha: "SenhaOutroSetor#2026",
   },
 ];
 
@@ -80,4 +100,14 @@ export function criarIdentidadesDeTeste(): FixturesIdentidade {
     setores: setores.map((setor) => ({ ...setor })),
     identidades: identidades.map((identidade) => ({ ...identidade })),
   };
+}
+
+export function identidadePorUsuario(usuario: string): IdentidadeTeste {
+  const identidade = identidades.find((candidata) => candidata.usuario === usuario);
+
+  if (!identidade) {
+    throw new Error(`Identidade de teste desconhecida: ${usuario}`);
+  }
+
+  return { ...identidade };
 }
